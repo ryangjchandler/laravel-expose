@@ -48,7 +48,7 @@ EXPOSE_SERVER=your-server-here # e.g. eu-1
 
 Now you can run the `artisan expose` command and your `.env` file's `APP_URL` variable will be replaced with the new URL that Expose is using.
 
-When you hit <kbd>Ctrl + C</kbd> to terminate the command, the `APP_URL` variable will be restored so that you can continue using your site locally too.
+When you hit <kbd>Ctrl + C</kbd> to terminate the command, the `APP_URL` variable will be restored so that you can continue using your site locally.
 
 ## Testing
 
