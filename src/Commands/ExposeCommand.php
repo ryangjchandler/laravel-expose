@@ -2,13 +2,13 @@
 
 namespace RyanChandler\LaravelExpose\Commands;
 
-use Illuminate\Support\Str;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Str;
 use Symfony\Component\Console\Command\SignalableCommandInterface;
-use Symfony\Component\Process\Process;
 use Symfony\Component\Process\ExecutableFinder;
+use Symfony\Component\Process\Process;
 
 class ExposeCommand extends Command implements SignalableCommandInterface
 {
@@ -29,7 +29,7 @@ class ExposeCommand extends Command implements SignalableCommandInterface
         $server = $this->option('server') ?: config('expose.server');
 
         $command = [
-            (new ExecutableFinder)->find('expose', 'expose', [
+            (new ExecutableFinder())->find('expose', 'expose', [
                 '/usr/local/bin',
                 '/opt/homebrew/bin',
             ]),
@@ -59,7 +59,7 @@ class ExposeCommand extends Command implements SignalableCommandInterface
 
     protected function setExposeUrlInEnv()
     {
-        (new Filesystem)->replaceInFile(
+        (new Filesystem())->replaceInFile(
             'APP_URL='.$this->originalUrl,
             'APP_URL='.$this->shareUrl,
             base_path('.env'),
@@ -79,7 +79,7 @@ class ExposeCommand extends Command implements SignalableCommandInterface
             return;
         }
 
-        (new Filesystem)->replaceInFile(
+        (new Filesystem())->replaceInFile(
             'APP_URL='.$this->shareUrl,
             'APP_URL='.$this->originalUrl,
             base_path('.env'),

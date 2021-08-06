@@ -2,9 +2,9 @@
 
 namespace RyanChandler\LaravelExpose;
 
+use RyanChandler\LaravelExpose\Commands\ExposeCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use RyanChandler\LaravelExpose\Commands\ExposeCommand;
 
 class LaravelExposeServiceProvider extends PackageServiceProvider
 {
